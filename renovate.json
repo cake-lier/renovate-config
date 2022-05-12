@@ -1,0 +1,19 @@
+{
+  "extends": [
+    "config:base", ":rebaseStalePrs", ":semanticCommits", ":automergeAll", ":docker", ":assignee(cake-lier)", ":enableVulnerabilityAlerts", ":dependencyDashboard" 
+  ],
+  "git-submodules": {
+    "enabled": true
+  },
+  "includeForks": true,
+  "packageRules": [
+    {
+      "description": "Updates to GitHub Actions should be tagged as 'ci'",
+      "matchPaths": [".github/workflows/*.yml", ".github/workflows/*.yaml"],
+      "semanticCommitType": "ci"
+    }
+  ],
+  "separateMajorMinor": true,
+  "separateMinorPatch": true,
+  "separateMultipleMajor": true 
+}
