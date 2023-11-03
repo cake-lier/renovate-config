@@ -4,7 +4,7 @@
   "baseBranches": ["main", "beta"],
   "configMigration": true,
   "extends": [
-    "config:base", 
+    "config:recommended", 
     ":assignAndReview(cake-lier)", 
     ":automergeAll",
     ":pinDependencies", 
@@ -21,7 +21,6 @@
   "git-submodules": {
     "enabled": true
   },
-  "includeForks": true,
   "labels": ["dependencies"],
   "packageRules": [
     {
@@ -31,7 +30,17 @@
     },
     {
       "description": "Updates to build automation files should be tagged as 'build'",
-      "matchPaths": ["build.sbt", "project/plugins.sbt", "project/Dependencies.scala"],
+      "matchPaths": [
+        "build.sbt", 
+        "project/plugins.sbt", 
+        "project/Dependencies.scala",
+        "**/build.gradle.kts",
+        "settings.gradle.kts",
+        "gradle/libs.versions.toml",
+        "gradle/wrapper/gradle-wrapper.properties",
+        "Dockerfile",
+        "docker-compose.yml"
+      ],
       "semanticCommitType": "build"
     }
   ],
